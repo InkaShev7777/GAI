@@ -1,8 +1,9 @@
 import React from 'react'
 
-export default function Car (props) {
+export default function ModelCar(props) {
   return (
-    <div className='card-div' onClick={()=>{props.choiseSlug(props.slug)}}>
+    // add on clic ? 
+    <div className='card-div'>
         <img src={props.img} alt='car-image'></img>
         <h3>{props.title}</h3>
     </div>

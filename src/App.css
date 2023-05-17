@@ -66,7 +66,8 @@ body{
   display: flex;
   flex-wrap: wrap;
   width: 1200px;
-  margin-left: 16%;
+  margin-left: 26%;
+  margin-top: 40px;
 }
 .App-logo {
   height: 40vmin;
@@ -201,4 +202,100 @@ body{
 
 .vin-code-btn {
   width: 100%;
+}
+
+.card-container{
+  border-radius: 10px;
+  width: 60%;
+  display: flex;
+  /* margin: 2% 13%; */
+  background-color: #212529;
+  margin-left: 510px;
+  margin-top: 100px;
+}
+.div-card-image{
+  width: 1700px;
+}
+.div-card-image img{
+  width: 60%;
+  height: 100%;
+  float: left;
+  border-radius: 10px 0px 0px 10px;
+  filter: brightness(50%);
+  transition: 2s ease;
+}
+.div-card-image img:hover{
+  filter: brightness(100%);
+}
+.date-registrate{
+  position: absolute;
+  float: left;
+  margin-left: 630px;
+  color: #fff;
+  margin-top: -450px;
+  font-size: 18px;
+}
+.div-info{
+
+}
+.year-name-car{
+  margin-top: 350px;
+  text-align: left;
+}
+.year-name-car h3{
+  color: #fff;
+  font-size: 24px;
+  margin: -10px 0px 10px 0px;
+}
+.number{
+  float: left;
+  position: absolute;
+  margin-left: 15px;
+  margin-top: 10px;
+  height: 100px;
+}
+.vin input{
+  border: 1px solid #f1f1f1;
+  background-color: transparent;
+  width: 210px;
+  font-size: 16px;
+  float: left;
+  margin: 15px;
+  color: #f1f1f1;
+  padding: 5px;
+  border-radius: 3px;
+}
+.all-info p{
+  float: left;
+  margin-right: 100px;
+  margin-left: 20px;
+  color: #f1f1f1;
+  font-size: 16px;
+}
+.btn-back{
+  color: #ffff;
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  margin-top: 600px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #f1f1f1;
+  transition: 1.2s ease;
+}
+.btn-back:hover{
+  transform: scale(1.1);
+  border: 1px solid #0057b7;
+}
+.btn-home{
+  float: left;
+  margin-left: 350px;
+  color: #fff;
+  margin-top: 23px;
+  text-shadow: 0px 1px 10px rgb(0 0 0 / 90%), 0px 0px 10px rgb(0 0 0 / 90%), 0px 1px 10px rgb(0 0 0 / 90%);
+  transition: 1.5s ease;
+  border: 1px solid transparent;
+}
+.btn-home:hover{
+  transform: scale(1.1);
 }
