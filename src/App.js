@@ -16,10 +16,18 @@ function App() {
   const [showHome,setShowhome] = useState(true)
   const setSearch = () =>{
     setIsSearch(!isSearch)
-    setShowhome(!showHome)
+  
   }
    async function search(text){
      setSeachText(text)
+     if(text.length >=  8){
+      setIsSearch(true)
+      setShowhome(false)
+      setShowMark(false)
+     }
+     else{
+      setIsSearch(false)
+     }
   }
   const choiseSlug = (sluq) => {
     if(sluq.length > 0){
@@ -41,12 +49,12 @@ function App() {
   return (
     <div className="App">
       <Header homeNow={homeNow}/>
-      <Search search={search} setSearch={setSearch}/>
+      <Search search={search} />
       { showHome &&
            <CatalogCars choiseSlug={choiseSlug}/>
       }
       {isSearch &&
-        <Card setSearch={setSearch} text={searchText}/>
+        <Card setSearch={homeNow} text={searchText}/>
       }
       { showMark &&
         <CatalogModels sluq={slugMark}/>

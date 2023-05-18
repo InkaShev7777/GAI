@@ -17,7 +17,6 @@ class CatalogModels extends React.Component {
             res.header("Access-Control-Allow-Origin", "*");
         }).then((resp) => this.setState({ data: resp.data }));
         await this.setState({models: this.state.data['catalog_models']})
-        // this.setState({models: this.state.data.data['catalog_models']})
         console.log(this.state.data['catalog_models']);
     }
     render() {

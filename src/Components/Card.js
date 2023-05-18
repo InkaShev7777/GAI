@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 class Card extends React.Component {
     constructor(props) {
         super(props)
@@ -8,26 +9,32 @@ class Card extends React.Component {
             signs: '',
             color: '',
             operation: '',
-            vin: ''
+            vin: '',
+            searchOk:false
         }
     }
     async componentDidMount() {
-        let url = `https://baza-gai.com.ua/nomer/${this.props.text}`;
-        let key = "a4ac865acdf651589a1fb19439037241";
-        let request = fetch(url, { headers: { "Accept": "application/json", "X-Api-Key": key } }).then(r => r.json());
+        let url = `http://127.0.0.1:8000/api/car?query=${this.props.text}`;
+        let request = fetch(url, { headers: { "Accept": "application/json" } }).then(r => r.json());
         let data = await request
-        console.log(data);
-        this.setState({ data: data })
-        this.setState({ registrate: data['operations'][0]['registered_at'] })
-        this.setState({ signs: data['operations'][0]['kind']['ru'] })
-        this.setState({ color: data['operations'][0]['color']['ru'] })
-        this.setState({ operation: data['operations'][0]['operation']['ua'] })
-        this.setState({ vin: "VIN: " + this.state.data['vin'] })
+        if(data.length > 0){
+            console.log(data);
+            this.setState({ data: data })
+            this.setState({ registrate: data['operations'][0]['registered_at'] })
+            this.setState({ signs: data['operations'][0]['kind']['ru'] })
+            this.setState({ color: data['operations'][0]['color']['ru'] })
+            this.setState({ operation: data['operations'][0]['operation']['ua'] })
+            this.setState({ vin: "VIN: " + this.state.data['vin'] })
+        }
+        else{
+            alert("Ничего не найдено!!!")
+        }
     }
     render() {
         return (
             <div>
-                <div className='card-container'>
+                {this.state.searchOk &&
+                    <div className='card-container'>
                     <div className='div-card-image'>
                         <img src={this.state.data['photo_url']} alt="car-image" />
                         <div className='number'>
@@ -56,12 +63,13 @@ class Card extends React.Component {
                                     <p>Регистрация: {this.state.registrate} (последняя)</p>
                                     <p>Приметы: {this.state.signs},{this.state.color}</p>
                                     <p style={{ flexWrap: 'wrap', width: 400 }} >Операция: {this.state.operation}</p>
-                                    <button className='btn-back' onClick={()=>{this.props.setSearch()}}> Go Back</button>
+                                    <button className='btn-back' onClick={() => { this.props.setSearch() }}> Go Back</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                }
             </div>
         )
     }
