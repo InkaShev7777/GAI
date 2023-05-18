@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/car',[\App\Http\Controllers\Api\CarController::class, 'index']);
 Route::get('/mark',[\App\Http\Controllers\Api\CarController::class, 'getModel']);
+Route::get('/mark/model',[\App\Http\Controllers\Api\CarController::class, 'getCar']);

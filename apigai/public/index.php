@@ -7,6 +7,20 @@ define('LARAVEL_START', microtime(true));
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, OPTIONS');
 
+//header('Access-Control-Allow-Origin', '*');
+//header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//header('Access-Control-Allow-Headers',' Origin, Content-Type, Accept, Authorization, X-Request-With');
+//header('Access-Control-Allow-Credentials',' true');
+
+//header('Access-Control-Allow-Origin: http://127.0.0.1:8000');
+//header('Access-Control-Allow-Credentials: true');
+//header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS, HEAD');
+//header('Access-Control-Max-Age: 1728000');
+//header('Content-Type: application/json');
+//header('cors-enabled: false');
+//header('mode: no-cors');
+//header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token');
+
 /*
 |--------------------------------------------------------------------------
 | Check If The Application Is Under Maintenance
